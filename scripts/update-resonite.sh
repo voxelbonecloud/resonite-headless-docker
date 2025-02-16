@@ -88,7 +88,7 @@ if [ "${ENABLE_GIT_CONFIG}" = "true" ] || ["${ENABLE_GIT_MODS}" = "true" ]; then
   #Make the Staging folder for pulling down the repository
   mkdir -p /home/container/gitstaging
   cd /home/container/gitstaging
-  if [ "${GIT_REPOSITORY_PRIVATE}" = "true" ]; then
+  if [ "${GIT_ACCESS_TOKEN}" != "" ]; then
     if [ -d ".git" ]; then
       # Pull Latest changes if repository already cloned
       git pull https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@${GIT_URL#https://}
