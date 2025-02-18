@@ -84,33 +84,31 @@ fi
 fi
 
 #Pull github/git repository into staging folder if either ENABLE_GIT_CONFIG or ENABLE_GIT_MODS is set to true
-if [ "${ENABLE_GIT_CONFIG}" = "true" ] || ["${ENABLE_GIT_MODS}" = "true" ]; then
+if [ "${ENABLE_GIT_CONFIG}" = "true" ] || [ "${ENABLE_GIT_MODS}" = "true" ]; then
   #Make the Staging folder for pulling down the repository
   mkdir -p /home/container/gitstaging
   cd /home/container/gitstaging
-  if [ "${GIT_ACCESS_TOKEN}" != "" ]; then
-    if [ -d ".git" ]; then
-      # Pull Latest changes if repository already cloned
-      git pull https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@${GIT_URL#https://}
-      echo "Repo has been pulled"
+
+  #If GIT_ACCESS_TOKEN is set, use it to clone the repository
+  if [ -n "${GIT_ACCESS_TOKEN}" ]; then
+    echo "Using GitHub Personal Access Token for authentication..."
+    if echo "${GIT_ACCESS_TOKEN}" | grep -q "^https://"; then
+      GIT_URL="https://${GIT_ACCESS_TOKEN}@${GIT_URL#https://}"
     else
-      #If no existing files clone into staging directory. Keep the . at the end plz.
-      git clone https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@${GIT_URL#https://} .
-      echo "Repo has been cloned"
-    fi  
-  else
-    if [ -d ".git" ]; then
-      # Pull Latest changes if repository already cloned
-      git pull "${GIT_URL}"
-      echo "Repo has been pulled"
-    else
-      #If no existing files clone into staging directory
-      git clone "${GIT_URL}" .
-      echo "Repo has been cloned"
+      echo "Error: When using a PAT key, GIT_URL must be an HTTPS URL."
     fi
   fi
-fi
 
+  if [ -d ".git" ]; then
+    # Pull Latest changes if repository already cloned
+    git pull "${GIT_URL}"
+    echo "Repo has been pulled"
+  else
+    #If no existing files clone into staging directory
+    git clone "${GIT_URL}" .
+    echo "Repo has been cloned"
+  fi
+fi
 
 #Copy Config files from git staging folder into /Config if ENABLE_GIT_CONFIG is true
 if [ "${ENABLE_GIT_CONFIG}" = "true" ]; then
