@@ -36,7 +36,6 @@ services:
     stdin_open: true
     user: "1000:1000"
     volumes:
-      - "/etc/localtime:/etc/localtime:ro"
       - "Headless_Configs:/Config"
       - "Headless_Logs:/Logs"
       # - "RML:/RML" # Uncomment if using mods
@@ -68,9 +67,12 @@ GIT_REPOSITORY_PRIVATE="false"
 GIT_USERNAME="username"
 GIT_ACCESS_TOKEN="ACCESS-TOKEN"
 KEEP_IN_SYNC="false"
+TZ="Etc/UTC"
 ```
 
 LOG_RETENTION will default to 30 days if left unset or removed.
+
+If TZ (Time Zone)is not set the default will be UTC.
 
 
 ```

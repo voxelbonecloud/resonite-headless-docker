@@ -22,7 +22,6 @@ services:
     stdin_open: true
     user: "1000:1000"
     volumes:
-      - "/etc/localtime:/etc/localtime:ro"
       - "Headless_Configs:/Config"
       - "Headless_Logs:/Logs"
       # - "RML:/RML" # Uncomment if using mods
