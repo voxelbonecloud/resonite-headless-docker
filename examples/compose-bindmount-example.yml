@@ -11,7 +11,6 @@ services:
     stdin_open: true
     user: "1000:1000"
     volumes:
-      - "/etc/localtime:/etc/localtime:ro"
       - "/path/to/Config:/Config"
       - "/path/to/Logs:/Logs"
       - "/path/to/RML:/RML" # This line can be removed if not using mods.

@@ -11,11 +11,11 @@ services:
       STEAM_BRANCH: headless
       LOG_RETENTION: 30
       ENABLE_MODS: false
+      TZ: "America/New_York"
     tty: true
     stdin_open: true
     user: "1000:1000"
     volumes:
-      - "/etc/localtime:/etc/localtime:ro"
       - "Headless_Configs:/Config"
       - "Headless_Logs:/Logs"
       - "RML:/RML"
