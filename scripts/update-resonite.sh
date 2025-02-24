@@ -84,7 +84,7 @@ fi
 fi
 
 #Pull github/git repository into staging folder if either ENABLE_GIT_CONFIG or ENABLE_GIT_MODS is set to true
-if [ "${ENABLE_GIT_CONFIG}" = "true" ] || ["${ENABLE_GIT_MODS}" = "true" ]; then
+if [ "${ENABLE_GIT_CONFIG}" = "true" ] || [ "${ENABLE_GIT_MODS}" = "true" ]; then
   #Make the Staging folder for pulling down the repository
   mkdir -p /home/container/gitstaging
   cd /home/container/gitstaging
