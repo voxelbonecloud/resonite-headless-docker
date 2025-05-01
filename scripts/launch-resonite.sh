@@ -6,8 +6,4 @@ find /Logs -type f -name *.log -atime +${LOG_RETENTION:-30} -delete
 
 cd /home/container/Headless/
 
-if [ "${ENABLE_MODS}" = "true" ]; then
-	exec dotnet Resonite.dll -HeadlessConfig /Config/${CONFIG_FILE} -Logs /Logs/ -LoadAssembly Libraries/ResoniteModLoader.dll ${ADDITIONAL_ARGUMENTS}
-else
-	exec dotnet Resonite.dll -HeadlessConfig /Config/${CONFIG_FILE} -Logs /Logs/ ${ADDITIONAL_ARGUMENTS}
-fi
+exec dotnet Resonite.dll -HeadlessConfig /Config/${CONFIG_FILE} -Logs /Logs/ ${ADDITIONAL_ARGUMENTS}
