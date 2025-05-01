@@ -1,21 +1,17 @@
 services:
   headless:
     container_name: resonite-headless
-    image: ghcr.io/voxelbonecloud/resonite-headless-docker:main 
-    env_file: .env
+    image: ghcr.io/voxelbonecloud/resonite-headless-docker:nofreetype 
     environment:
-      CONFIG_FILE: Config.json
-      ENABLE_MODS: false
-      #ADDITIONAL_ARGUMENTS:
+      # Set SKIP_STEAM_UPDATE to true to skip updating Resonite through Steam
+      SKIP_STEAM_UPDATE: false
+      STEAM_USER: "SomeSteamUsername"
+      STEAM_PASS: "SomeSteamPassword"
+      BETA_CODE: "ResoniteHeadlessKey"
     tty: true
     stdin_open: true
     user: "1000:1000"
     volumes:
-      - "Headless_Configs:/Config"
-      - "Headless_Logs:/Logs"
-      - "RML:/RML"
-    restart: on-failure:5
-volumes:
-  Headless_Configs:
-  Headless_Logs:
-  RML:
+    # Make sure you create a directory called "install" next to this compose file!
+    # Resonite will be installed into this directory.
+      - "./install:/home/container/install"

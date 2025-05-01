@@ -8,23 +8,13 @@ LABEL org.opencontainers.image.authors="Voxel Bone Cloud"
 
 RUN	apt update \
 	&& dpkg --add-architecture i386 \
-	&& apt install curl git lib32gcc-s1 libfreetype6 -y \
+	&& apt install curl git lib32gcc-s1 -y \
 	&& groupadd -g 1000 container \
 	&& useradd -u 1000 -g 1000 -m -d /home/container -s /bin/bash container
 
 COPY	./scripts /scripts
 
 RUN	chmod +x /scripts/*
-
-RUN	mkdir /Logs \
-	&& chown -R container:container /Logs
-
-RUN mkdir /Config \
-    && chown -R container:container /Config
-
-RUN	mkdir -p /RML /RML/rml_mods /RML/rml_libs /RML/rml_config \
-	&& chown -R container:container /RML
-USER	container
 
 USER	container
 ENV	USER=container 

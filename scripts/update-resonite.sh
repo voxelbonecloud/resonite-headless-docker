@@ -8,14 +8,10 @@ if [ ! -d "/home/container/steamcmd" ]; then
 	tar -xf /tmp/steamcmd.tar.gz --directory /home/container/steamcmd
 fi
 
-HEADLESS_DIRECTORY="/home/container/Headless"
+HEADLESS_DIRECTORY="/home/container/install/Headless"
 
-STEAMCMD_BETA_PASSWORD=""
-
-if [ ! "${BETA_CODE}" = "" ]; then
-  STEAMCMD_BETA_PASSWORD="-betapassword ${BETA_CODE}"
+if [ "${SKIP_STEAM_UPDATE}" = "false" ]; then
+  /home/container/steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +force_install_dir /home/container/install +app_license_request 2519830 +app_update 2519830 -beta "headless" -betapassword "${BETA_CODE}" validate +quit
 fi
-
-/home/container/steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +force_install_dir /home/container +app_license_request 2519830 +app_update 2519830 -beta ${STEAM_BRANCH} ${STEAMCMD_BETA_PASSWORD} validate +quit
 
 exec $*
