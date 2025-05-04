@@ -44,13 +44,12 @@ if [ "${KEEP_IN_SYNC}" = "true" ]; then
   echo "Deleted old files to stay in sync"
 fi
 
-  # Download RML and 0harmony
-  #curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/0Harmony-Net8.dll -o ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net8.dll
-
-  # Make sure we don't have the .net8 harmony
-  rm ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net8.dll
-  curl -SslL https://github.com/stiefeljackal/pardeike.Harmony/releases/download/temp-release/0Harmony.dll -o ${HEADLESS_DIRECTORY}/rml_libs/0Harmony.dll
+  # Download ResoniteModLoader and Harmony
+  curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/0Harmony-Net9.dll -o ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net9.dll
   curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/ResoniteModLoader.dll -o ${HEADLESS_DIRECTORY}/Libraries/ResoniteModLoader.dll
+  
+  # Also make sure we don't have the older .net8 harmony
+  rm ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net8.dll
 
   # If automatic mod updating is enabled, download the requested mods
   if [ "${ENABLE_AUTO_MOD_UPDATE}" = "true" ]; then

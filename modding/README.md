@@ -1,9 +1,9 @@
 # Modding Resonite Headless Container
 When `ENABLE_MODS` is set to true the following changes will happen each time the container starts. 
 
-1. All required folders such as RML_mods/libs/config will be created inside the Resonite installation and symlinked to the corresponding folders under /RML in the container.
+1. All required folders such as `rml_mods`, `rml_libs`, and `rml_config` will be created inside the Resonite installation and symlinked to the corresponding folders under /RML in the container.
 2. Libraries folder will be created
-3. The latest release of 0Harmony-Net8.dll and ResoniteModLoader.dll will be downloaded and placed into the correct folders.
+3. The latest release of 0Harmony-Net9.dll and ResoniteModLoader.dll will be downloaded and placed into the correct folders.
 4. The correct Load Assembly argument will be passed to Resonite
 
 Mods can be disabled and enabled as required by changing the variable.
