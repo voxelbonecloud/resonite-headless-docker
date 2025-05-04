@@ -48,8 +48,9 @@ fi
   curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/0Harmony-Net9.dll -o ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net9.dll
   curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/ResoniteModLoader.dll -o ${HEADLESS_DIRECTORY}/Libraries/ResoniteModLoader.dll
   
-  # Also make sure we don't have the older .net8 harmony
+  # Also make sure we don't have older versions of Harmony
   rm ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net8.dll
+  rm ${HEADLESS_DIRECTORY}/rml_libs/0Harmony.dll
 
   # If automatic mod updating is enabled, download the requested mods
   if [ "${ENABLE_AUTO_MOD_UPDATE}" = "true" ]; then
