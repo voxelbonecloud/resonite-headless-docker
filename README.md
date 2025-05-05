@@ -1,8 +1,6 @@
-
-
 # Resonite Headless 
 
-Docker image based on Debian Bookworm Slim image with dotnet8 for hosting Resonite Headless servers. Supports automatic modding of the Headless and updating config and mod files from git repos.
+Docker image based on Debian Bookworm Slim image with dotnet9 for hosting Resonite Headless servers. Supports automatic modding of the Headless and updating config and mod files from git repos.
 
 You can find examples for Portainer deployments in the [Portainer folder](portainer/)
 
