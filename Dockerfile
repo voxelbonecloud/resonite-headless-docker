@@ -13,8 +13,7 @@ RUN	apt update \
 	&& rm /tmp/packages-microsoft-prod.deb \
 	&& dpkg --add-architecture i386 \
 	&& apt update \
-	&& apt search dotnet \ 
-	&& apt install curl git lib32gcc-s1 libfreetype6 dotnet-runtime-9.0 -y \
+	&& apt install git lib32gcc-s1 libfreetype6 dotnet-runtime-9.0 -y \
 	&& groupadd -g 1000 container \
 	&& useradd -u 1000 -g 1000 -m -d /home/container -s /bin/bash container
 
