@@ -1,10 +1,10 @@
 FROM	debian:trixie-slim
 
 LABEL	author="Voxel Bone Cloud" maintainer="github@voxelbone.cloud"
-LABEL org.opencontainers.image.source=https://github.com/voxelbonecloud/resonite-headless-docker
-LABEL org.opencontainers.image.description="Docker image based on Debian trixie Slim image with .NET 9 for hosting Resonite Headless servers. Supports automatic modding of the Headless."
-LABEL org.opencontainers.image.licenses=MIT-0
-LABEL org.opencontainers.image.authors="Voxel Bone Cloud"
+LABEL	org.opencontainers.image.source=https://github.com/voxelbonecloud/resonite-headless-docker
+LABEL	org.opencontainers.image.description="Docker image based on Debian trixie Slim image with .NET 9 for hosting Resonite Headless servers. Supports automatic modding of the Headless."
+LABEL	org.opencontainers.image.licenses=MIT-0
+LABEL	org.opencontainers.image.authors="Voxel Bone Cloud"
 
 RUN	apt update \
 	&& apt install curl -y \
@@ -25,8 +25,8 @@ RUN	chmod +x /scripts/*
 RUN	mkdir /Logs \
 	&& chown -R container:container /Logs
 
-RUN mkdir /Config \
-    && chown -R container:container /Config
+RUN	mkdir /Config \
+	&& chown -R container:container /Config
 
 RUN	mkdir -p /RML /RML/rml_mods /RML/rml_libs /RML/rml_config \
 	&& chown -R container:container /RML
