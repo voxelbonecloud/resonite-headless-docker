@@ -45,7 +45,7 @@ if [ "${KEEP_IN_SYNC}" = "true" ]; then
 fi
 
   # Download ResoniteModLoader and Harmony
-  curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/0Harmony-Net9.dll -o ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net9.dll
+  curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/0Harmony.dll -o ${HEADLESS_DIRECTORY}/rml_libs/0Harmony.dll
   curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/ResoniteModLoader.dll -o ${HEADLESS_DIRECTORY}/Libraries/ResoniteModLoader.dll
   
   # Also make sure we don't have older versions of Harmony
