@@ -17,7 +17,7 @@ if [ ! "${BETA_CODE}" = "" ]; then
 fi
 
 
-/home/container/steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +force_install_dir /home/container +app_license_request 2519830 +app_update 2519830 -beta ${STEAM_BRANCH} ${STEAMCMD_BETA_PASSWORD} validate +quit
+/home/container/steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +@sSteamCmdForcePlatformType windows +force_install_dir /home/container +app_license_request 2519830 +app_update 2519830 -beta ${STEAM_BRANCH} ${STEAMCMD_BETA_PASSWORD} validate +quit
 
 #Mod installation if ENABLE_MODS is true. Heavily inspired and pulled from work by Spex. Thank you
 if [ "${ENABLE_MODS}" = "true" ]; then
