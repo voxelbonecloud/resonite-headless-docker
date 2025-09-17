@@ -14,6 +14,18 @@ It is recommended to use a seperate Steam account with Steam Guard disabled to d
 
 You will need a config file for the headless to load. Examples for Resonite Headless config files can be found on the [Resonite Wiki](https://wiki.resonite.com/Headless_Server_Software/Configuration_File#Example_Files)
 
+## How to use
+
+This assumes you have a working Docker environment on your computer and basic knowledge of how to use it - if not, follow Docker's guidance on installing Docker on your computer: https://docs.docker.com/engine/install/
+
+Clone this repository or download [docker-compose.yml](docker-compose.yml) and [example.env](example.env) to a directory on your computer.
+
+Copy `example.env` to `.env`
+
+Edit the `.env` file and make the changes you wish to make. You will need to populate `STEAM_USER`, `STEAM_PASS` and `BETA_CODE` as a baseline for the headless to work - everything else in the file is optional to change.
+
+Run `docker compose up -d` (or `docker-compose up -d` if required) while in the same folder as the headless - this will start the headless in the background.
+
 ## Example Compose file
 The following compose file uses stack wide environmental variables to set common values that may be used across multiple headless servers in the one stack. This allows adjusting config files for individual servers but reuse for example steam credentials for downloading server files.
 

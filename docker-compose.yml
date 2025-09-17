@@ -13,9 +13,9 @@ services:
     volumes:
       - "Headless_Configs:/Config"
       - "Headless_Logs:/Logs"
-      - "RML:/RML"
+      # - "RML:/RML"
     restart: on-failure:5
 volumes:
   Headless_Configs:
   Headless_Logs:
-  RML:
+  # RML:
