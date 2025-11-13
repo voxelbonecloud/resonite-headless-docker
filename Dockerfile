@@ -8,7 +8,7 @@ LABEL	org.opencontainers.image.authors="Voxel Bone Cloud"
 
 RUN	apt update \
 	&& apt install curl -y \
-	&& curl https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb \
+	&& curl https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb \
 	&& dpkg -i /tmp/packages-microsoft-prod.deb \
 	&& rm /tmp/packages-microsoft-prod.deb \
 	&& dpkg --add-architecture i386 \
