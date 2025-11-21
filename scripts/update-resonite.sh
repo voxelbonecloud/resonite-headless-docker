@@ -30,9 +30,18 @@ if [ "${ENABLE_MODS}" = "true" ]; then
   mkdir -p /RML/rml_mods /RML/rml_libs /RML/rml_config
   
   # Symlink rml_mods, rml_libs and rml_config to where Resonite will read them.
-  ln -s /RML/rml_mods ${HEADLESS_DIRECTORY}/rml_mods
-  ln -s /RML/rml_libs ${HEADLESS_DIRECTORY}/rml_libs
-  ln -s /RML/rml_config ${HEADLESS_DIRECTORY}/rml_config
+  # Create links only if they do not already exist.
+  for name in rml_mods rml_libs rml_config; do
+    target="/RML/${name}"
+    link="${HEADLESS_DIRECTORY}/${name}"
+
+    if [ ! -e "${link}" ]; then
+      ln -s "${target}" "${link}" || echo "Failed to create symlink ${link} -> ${target}"
+      echo "Created symlink ${link} -> ${target}"
+    else
+      echo "${link} already exists; skipping"
+    fi
+  done
 
     #If KEEP_IN_SYNC is true. The rml_mods, rml_config and the main /Config Folder will be wiped before coping the repo files. This ensures no additional files are added or kept.
 #For example if you manually added a config file directly. This would be removed so everything is in sync with the repo. 
