@@ -2,7 +2,7 @@ FROM	debian:trixie-slim
 
 LABEL	author="Voxel Bone Cloud" maintainer="github@voxelbone.cloud"
 LABEL	org.opencontainers.image.source=https://github.com/voxelbonecloud/resonite-headless-docker
-LABEL	org.opencontainers.image.description="Docker image based on Debian trixie Slim image with .NET 9 for hosting Resonite Headless servers. Supports automatic modding of the Headless."
+LABEL	org.opencontainers.image.description="Docker image based on Debian trixie Slim image with .NET 10 for hosting Resonite Headless servers. Supports automatic modding of the Headless."
 LABEL	org.opencontainers.image.licenses=MIT-0
 LABEL	org.opencontainers.image.authors="Voxel Bone Cloud"
 
@@ -13,7 +13,7 @@ RUN	apt update \
 	&& rm /tmp/packages-microsoft-prod.deb \
 	&& dpkg --add-architecture i386 \
 	&& apt update \
-	&& apt install git lib32gcc-s1 libfreetype6 dotnet-runtime-9.0 dotnet-runtime-10.0 -y \
+	&& apt install git lib32gcc-s1 libfreetype6 dotnet-runtime-10.0 -y \
 	&& rm -r /var/lib/apt/lists/* \
 	&& groupadd -g 1000 container \
 	&& useradd -u 1000 -g 1000 -m -d /home/container -s /bin/bash container
