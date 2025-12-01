@@ -22,7 +22,7 @@ jobs:
         id: check
         uses: lucacome/docker-image-update-checker@v3.0.1
         with:
-          base-image: debian/trixie-slim
+          base-image: debian:trixie-slim
           image: ghcr.io/voxelbonecloud/resonite-headless-docker:main
 
       - name: Log in to Docker
