@@ -2,8 +2,6 @@ name: Docker
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '24 1 * * 1'
   push:
     branches: [ "main" ]
     paths:
