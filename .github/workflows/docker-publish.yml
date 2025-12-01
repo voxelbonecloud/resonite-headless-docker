@@ -8,7 +8,7 @@ on:
       - 'scripts/**'
       - 'Dockerfile'
       - 'entrypoint.sh'
-      - '.github/workflows/**'
+      - '.github/workflows/docker-publish.yml'
 
 env:
   # Use docker.io for Docker Hub if empty
