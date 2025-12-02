@@ -3,7 +3,7 @@ name: Docker auto updates
 on:
   workflow_dispatch:
   schedule:
-    - cron: '24 1 * * 1'
+    - cron: '24 1 * * 1/2'
 
 env:
   # Use docker.io for Docker Hub if empty
