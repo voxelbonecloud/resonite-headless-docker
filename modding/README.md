@@ -18,10 +18,10 @@ For example, under volumes if you used - "/data/resomods:/RML", the mod folder w
 You can automatically install / update a selected few mods:
 
 - [HeadlessTweaks](https://github.com/New-Project-Final-Final-WIP/HeadlessTweaks)
-- [StresslessHeadless](https://github.com/Raidriar796/StresslessHeadless)
+- [StresslessHeadless](https://codeberg.org/Raidriar/StresslessHeadless)
 - [ResoniteIPv6Mod](https://github.com/bontebok/ResoniteIPv6Mod)
 - [Headless Prometheus Exporter](https://g.j4.lc/general-stuff/resonite/headless-prometheus-exporter)
-- [HeadlessUserCulling](https://github.com/Raidriar796/HeadlessUserCulling)
+- [HeadlessUserCulling](https://codeberg.org/Raidriar/HeadlessUserCulling)
 
 This functionality can be enabled with the `ENABLE_AUTO_MOD_UPDATE` environment variable.. Note `ENABLE_MODS` must also be `true`.
 
