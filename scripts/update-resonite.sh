@@ -74,7 +74,7 @@ fi
     # StresslessHeadless
     if [ "${MOD_StresslessHeadless}" = "true" ]; then
       echo "Installing StresslessHeadless"
-      curl -SslL https://github.com/Raidriar796/StresslessHeadless/releases/latest/download/StresslessHeadless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/StresslessHeadless.dll
+      curl -SslL https://codeberg.org/Raidriar/StresslessHeadless/releases/download/latest/StresslessHeadless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/StresslessHeadless.dll
     fi
 
     # ResoniteIPv6Mod
@@ -92,7 +92,7 @@ fi
     #HeadlessUserCulling
     if [ "${MOD_HeadlessUserCulling}" = "true" ]; then
       echo "Installing HeadlessUserCulling"
-      curl -SslL https://github.com/Raidriar796/HeadlessUserCulling/releases/latest/download/HeadlessUserCulling.dll -o ${HEADLESS_DIRECTORY}/rml_mods/HeadlessUserCulling.dll
+      curl -SslL https://codeberg.org/Raidriar/HeadlessUserCulling/releases/download/latest/HeadlessUserCulling.dll -o ${HEADLESS_DIRECTORY}/rml_mods/HeadlessUserCulling.dll
     fi
 
   fi
