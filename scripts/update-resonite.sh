@@ -23,6 +23,8 @@ fi
 if [ "${ENABLE_MODS}" = "true" ]; then
   echo "Modding Headless files"
 
+  /tools/rodger/rodger sync
+
   # Create Libraries directory for RML to live in
   mkdir -p ${HEADLESS_DIRECTORY}/Libraries
 
@@ -54,9 +56,9 @@ if [ "${KEEP_IN_SYNC}" = "true" ]; then
 fi
 
   # Download ResoniteModLoader and Harmony
-  curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/0Harmony.dll -o ${HEADLESS_DIRECTORY}/rml_libs/0Harmony.dll
-  curl -SslL https://github.com/resonite-modding-group/ResoniteModLoader/releases/latest/download/ResoniteModLoader.dll -o ${HEADLESS_DIRECTORY}/Libraries/ResoniteModLoader.dll
-  
+  /tools/rodger/rodger install resonitemodloader
+  /tools/rodger/rodger install harmony
+
   # Also make sure we don't have older versions of Harmony
   rm ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net8.dll
   rm ${HEADLESS_DIRECTORY}/rml_libs/0Harmony-Net9.dll
@@ -68,13 +70,13 @@ fi
     # HeadlessTweaks
     if [ "${MOD_HeadlessTweaks}" = "true" ]; then
       echo "Installing HeadlessTweaks"
-      curl -SslL https://github.com/New-Project-Final-Final-WIP/HeadlessTweaks/releases/latest/download/HeadlessTweaks.dll -o ${HEADLESS_DIRECTORY}/rml_mods/HeadlessTweaks.dll
+      /tools/rodger/rodger install HeadlessTweaks
     fi
 
     # StresslessHeadless
     if [ "${MOD_StresslessHeadless}" = "true" ]; then
       echo "Installing StresslessHeadless"
-      curl -SslL https://codeberg.org/Raidriar/StresslessHeadless/releases/download/latest/StresslessHeadless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/StresslessHeadless.dll
+      /tools/rodger/rodger install StresslessHeadless
     fi
 
     # ResoniteIPv6Mod
@@ -92,7 +94,7 @@ fi
     #HeadlessUserCulling
     if [ "${MOD_HeadlessUserCulling}" = "true" ]; then
       echo "Installing HeadlessUserCulling"
-      curl -SslL https://codeberg.org/Raidriar/HeadlessUserCulling/releases/download/latest/HeadlessUserCulling.dll -o ${HEADLESS_DIRECTORY}/rml_mods/HeadlessUserCulling.dll
+      /tools/rodger/rodger install headlessuserculling
     fi
 
   fi
