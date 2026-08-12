@@ -16,14 +16,14 @@ LABEL	org.opencontainers.image.description="Docker image based on Debian trixie 
 LABEL	org.opencontainers.image.licenses=MIT-0
 LABEL	org.opencontainers.image.authors="Voxel Bone Cloud"
 
-RUN	apt update \
-	&& apt install curl -y \
+RUN	apt-get update \
+	&& apt-get install curl -y \
 	&& curl https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb -o /tmp/packages-microsoft-prod.deb \
 	&& dpkg -i /tmp/packages-microsoft-prod.deb \
 	&& rm /tmp/packages-microsoft-prod.deb \
 	&& dpkg --add-architecture i386 \
-	&& apt update \
-	&& apt install git lib32gcc-s1 libfreetype6 dotnet-runtime-10.0 libmsquic -y \
+	&& apt-get update \
+	&& apt-get install git lib32gcc-s1 libfreetype6 dotnet-runtime-10.0 libmsquic -y \
 	&& rm -r /var/lib/apt/lists/* \
 	&& groupadd -g 1000 container \
 	&& useradd -u 1000 -g 1000 -m -d /home/container -s /bin/bash container
