@@ -42,6 +42,13 @@ RUN	mkdir /Logs \
 RUN	mkdir /Config \
 	&& chown -R container:container /Config
 
+RUN	mkdir -p /home/container/.config/Rodger \
+	mkdir -p /home/container/.cache \
+	&& chown -R container:container /home/container/.config \
+	&& chown -R container:container /home/container/.cache
+
+COPY	./templates/rodger/config.ron /home/container/.config/Rodger/config.ron 
+
 RUN	mkdir -p /RML /RML/rml_mods /RML/rml_libs /RML/rml_config \
 	&& chown -R container:container /RML
 USER	container
