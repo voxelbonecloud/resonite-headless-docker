@@ -1,3 +1,13 @@
+FROM	rust:1.97-trixie AS rodger-build
+
+RUN	apt-get update \
+	&& apt-get install git -y \
+	&& mkdir -p /rodger-build \
+	&& git clone --depth 1 --branch 0.3.2 https://codeberg.org/raidriar/Rodger /rodger-build/Rodger \
+	&& cd /rodger-build/Rodger \
+	&& tar -czvf /rodger-build/rodger.tar.gz . \
+	&& cargo build --release
+
 FROM	debian:trixie-slim
 
 LABEL	author="Voxel Bone Cloud" maintainer="github@voxelbone.cloud"
@@ -19,6 +29,10 @@ RUN	apt update \
 	&& useradd -u 1000 -g 1000 -m -d /home/container -s /bin/bash container
 
 COPY	./scripts /scripts
+
+RUN	mkdir -p /tools/rodger
+COPY	--from=rodger-build /rodger-build/Rodger/target/release/rodger /tools/rodger/rodger
+COPY	--from=rodger-build /rodger-build/rodger.tar.gz /tools/rodger/rodger.tar.gz
 
 RUN	chmod +x /scripts/*
 
