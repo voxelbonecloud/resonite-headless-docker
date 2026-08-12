@@ -23,7 +23,7 @@ RUN	apt-get update \
 	&& rm /tmp/packages-microsoft-prod.deb \
 	&& dpkg --add-architecture i386 \
 	&& apt-get update \
-	&& apt-get install git lib32gcc-s1 libfreetype6 dotnet-runtime-10.0 libmsquic -y \
+	&& apt-get install git lib32gcc-s1 libfreetype6 dotnet-runtime-10.0 libmsquic gettext-base -y \
 	&& rm -r /var/lib/apt/lists/* \
 	&& groupadd -g 1000 container \
 	&& useradd -u 1000 -g 1000 -m -d /home/container -s /bin/bash container
@@ -48,6 +48,8 @@ RUN	mkdir -p /home/container/.config/Rodger \
 	&& chown -R container:container /home/container/.cache
 
 COPY	./templates/rodger/config.ron /home/container/.config/Rodger/config.ron 
+COPY	./templates/engineconfig/Config.json /tools/Config.json
+
 
 RUN	mkdir -p /RML /RML/rml_mods /RML/rml_libs /RML/rml_config \
 	&& chown -R container:container /RML

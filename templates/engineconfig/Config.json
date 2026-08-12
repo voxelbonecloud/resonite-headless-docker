@@ -1,0 +1,5 @@
+{
+	"quicConfig": {
+		"publicIP": "$SERVER_IP"
+	}
+}
