@@ -3,7 +3,7 @@ FROM	rust:1.97-trixie AS rodger-build
 RUN	apt-get update \
 	&& apt-get install git -y \
 	&& mkdir -p /rodger-build \
-	&& git clone --depth 1 --branch 0.4.0 https://codeberg.org/raidriar/Rodger /rodger-build/Rodger \
+	&& git clone --depth 1 --branch 0.6.0 https://codeberg.org/raidriar/Rodger /rodger-build/Rodger \
 	&& cd /rodger-build/Rodger \
 	&& tar -czvf /rodger-build/rodger.tar.gz . \
 	&& cargo build --release
@@ -44,12 +44,11 @@ RUN	mkdir /Config \
 
 RUN	mkdir -p /home/container/.config/Rodger \
 	mkdir -p /home/container/.cache \
-	&& chown -R container:container /home/container/.config \
 	&& chown -R container:container /home/container/.cache
 
 COPY	./templates/rodger/config.ron /home/container/.config/Rodger/config.ron 
 COPY	./templates/engineconfig/Config.json /tools/Config.json
-
+RUN	chown -R container:container /home/container/.config
 
 RUN	mkdir -p /RML /RML/rml_mods /RML/rml_libs /RML/rml_config \
 	&& chown -R container:container /RML
