@@ -3,7 +3,7 @@ FROM	rust:1.97-trixie AS rodger-build
 RUN	apt-get update \
 	&& apt-get install git -y \
 	&& mkdir -p /rodger-build \
-	&& git clone --depth 1 --branch 0.6.0 https://codeberg.org/raidriar/Rodger /rodger-build/Rodger \
+	&& git clone --depth 1 --branch 0.7.0 https://codeberg.org/raidriar/Rodger /rodger-build/Rodger \
 	&& cd /rodger-build/Rodger \
 	&& tar -czvf /rodger-build/rodger.tar.gz . \
 	&& cargo build --release
