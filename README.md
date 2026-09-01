@@ -18,8 +18,9 @@ You will need a config file for the headless to load. Examples for Resonite Head
 
 This assumes you have a working Docker environment on your computer and basic knowledge of how to use it - if not, follow Docker's guidance on installing Docker on your computer: https://docs.docker.com/engine/install/
 
-Clone this repository or download [docker-compose.yml](docker-compose.yml) and [example.env](example.env) to a directory on your computer.
+Clone this repository or download [docker-compose.yml.example](docker-compose.yml.example) and [example.env](example.env) to a directory on your computer.
 
+Copy `docker-compose.yml.example` to `docker-compose.yml`
 Copy `example.env` to `.env`
 
 Edit the `.env` file and make the changes you wish to make. You will need to populate `STEAM_USER`, `STEAM_PASS` and `BETA_CODE` as a baseline for the headless to work - everything else in the file is optional to change.
