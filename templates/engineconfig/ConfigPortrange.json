@@ -1,0 +1,9 @@
+{
+	"quicConfig": {
+		"publicIP": "$SERVER_IP",
+		"ports": {
+			"min": $QUIC_MIN_PORT,
+			"max": $QUIC_MAX_PORT
+		}
+	}
+}

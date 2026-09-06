@@ -8,7 +8,13 @@ cd /home/container/Headless/
 
 if [ "${SERVER_IP}" != "" ]; then
 	echo Populating engine config
-	envsubst < /tools/Config.json > /home/container/Headless/Config.json
+	if [ "${QUIC_MIN_PORT}" != "" ] && [ "${QUIC_MAX_PORT}" != "" ]; then
+		echo Port range specified
+		envsubst < /tools/ConfigPortrange.json > /home/container/Headless/Config.json
+	else
+		echo Port range not specified
+		envsubst < /tools/Config.json > /home/container/Headless/Config.json
+	fi
 fi
 
 if [ "${ENABLE_MODS}" = "true" ]; then

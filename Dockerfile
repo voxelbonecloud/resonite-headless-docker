@@ -48,6 +48,7 @@ RUN	mkdir -p /home/container/.config/Rodger \
 
 COPY	./templates/rodger/config.ron /home/container/.config/Rodger/config.ron 
 COPY	./templates/engineconfig/Config.json /tools/Config.json
+COPY	./templates/engineconfig/ConfigPortrange.json /tools/ConfigPortrange.json
 RUN	chown -R container:container /home/container/.config
 
 RUN	mkdir -p /RML /RML/rml_mods /RML/rml_libs /RML/rml_config \
