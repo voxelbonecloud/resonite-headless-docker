@@ -93,6 +93,12 @@ fi
       /tools/rodger/rodger install headlessuserculling
     fi
 
+    # JustLetItGo
+    if [ "${MOD_JustLetItGo}" = "true" ]; then
+      echo "Installing JustLetItGo"
+      /tools/rodger/rodger install JustLetItGo
+    fi
+
   fi
 
 fi
