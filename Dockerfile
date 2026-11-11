@@ -23,7 +23,7 @@ RUN	apt-get update \
 	&& rm /tmp/packages-microsoft-prod.deb \
 	&& dpkg --add-architecture i386 \
 	&& apt-get update \
-	&& apt-get install git lib32gcc-s1 libfreetype6 dotnet-runtime-10.0 libmsquic gettext-base -y \
+	&& apt-get install git lib32gcc-s1 libfreetype6 dotnet-runtime-10.0 dotnet-runtime-11.0 libmsquic gettext-base -y \
 	&& rm -r /var/lib/apt/lists/* \
 	&& groupadd -g 1000 container \
 	&& useradd -u 1000 -g 1000 -m -d /home/container -s /bin/bash container
