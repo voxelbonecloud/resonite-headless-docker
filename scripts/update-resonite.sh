@@ -93,6 +93,12 @@ fi
       /tools/rodger/rodger install JustLetItGo
     fi
 
+    # Custom mod installation
+    if [ ! "${MOD_CustomList}" = "" ]; then # we likely have a list of custom mods, install it!
+	echo "Installing custom mods: ${MOD_CustomList}"
+	/tools/rodger/rodger install ${MOD_CustomList}
+    fi
+
   fi
 
 fi
