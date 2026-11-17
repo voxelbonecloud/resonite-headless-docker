@@ -75,12 +75,6 @@ fi
       /tools/rodger/rodger install StresslessHeadless
     fi
 
-    # ResoniteIPv6Mod
-    if [ "${MOD_ResoniteIPv6Mod}" = "true" ]; then
-      echo "Installing ResoniteIPv6Mod"
-      curl -SslL https://github.com/bontebok/ResoniteIPv6Mod/releases/latest/download/ResoniteIPv6Mod.dll -o ${HEADLESS_DIRECTORY}/rml_mods/ResoniteIPv6Mod.dll
-    fi
-
     # Headless Prometheus Exporter
     if [ "${MOD_PrometheusExporter}" = "true" ]; then
       echo "Installing Headless Prometheus Exporter"
